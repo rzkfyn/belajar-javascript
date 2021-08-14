@@ -115,5 +115,5 @@
  */
 // contoh
 // let a = !Benar;
-// console.log(`${Benar} = ${hasil}`);
+// console.log(`${Benar} = ${a}`);
 // output : !true = false
