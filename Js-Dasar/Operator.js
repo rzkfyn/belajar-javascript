@@ -114,6 +114,7 @@
  * false || false = false;
  */
 // contoh
-// let a = !Benar;
-// console.log(`${Benar} = ${a}`);
+// let Benar = true;
+// a = !Benar;
+// console.log(`${Benar} = ${hasil}`);
 // output : !true = false
