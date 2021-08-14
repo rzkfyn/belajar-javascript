@@ -105,3 +105,15 @@
 // let b = false;
 // console.log(a||b);
 // output : true
+//
+// 4.3 Negasi ! 
+/**
+ * true || false = true;
+ * false || true = true;
+ * true || true = true;
+ * false || false = false;
+ */
+// contoh
+// let a = !Benar;
+// console.log(`${Benar} = ${hasil}`);
+// output : !true = false
