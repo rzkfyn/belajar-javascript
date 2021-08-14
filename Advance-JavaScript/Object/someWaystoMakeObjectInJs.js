@@ -96,3 +96,36 @@
 // }
 // const sofyan = mahasiswa("Mohamad Rizki Sofyan", 17, 10);
 // console.log(sofyan);
+//5.1 Prototype function version
+//
+// function Mahasiswa(nama,energi){
+//     this.nama = nama;
+//     this.energi = energi;
+// }
+// Mahasiswa.prototype.makan = function(porsi){
+//     this.energi += porsi;
+//     return this.energi;
+// }
+// Mahasiswa.prototype.tidur = function(jam){
+//     this.energi += (jam*2);
+//     return this.energi;
+// }
+// const sofyan = new Mahasiswa("Mohamad Rizki Sofyan", 10);
+// console.log(sofyan);
+//5.2 Prototype class version
+// class Mahasiswa{
+//     constructor(nama, energi){
+//         this.nama = nama;
+//         this.energi = energi;
+//     }
+//     makan(porsi){
+//         this.energi += porsi;
+//         return this.energi;
+//     }
+//     tidur(jam){
+//         this.energi += (jam*2);
+//         return this.energi;
+//     }
+// }
+// const sofyan = new Mahasiswa("Mohamad Rizki Sofyan", 10);
+// console.log(sofyan);
