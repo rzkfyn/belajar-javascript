@@ -116,5 +116,5 @@
 // contoh
 // let Benar = true;
 // a = !Benar;
-// console.log(`${Benar} = ${hasil}`);
+// console.log(`${Benar} = ${a}`);
 // output : !true = false
