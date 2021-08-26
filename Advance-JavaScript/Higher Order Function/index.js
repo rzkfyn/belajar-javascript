@@ -1,5 +1,5 @@
 //  Higher order function merupakan function yang mereturn function didalamnya
-// atau function yang menggunakan function sebagai argument (callback fucntion)
+// atau function yang menggunakan function sebagai argument (callback function)
 // Contoh Sederhana : 
 // function bangunTidur(jam, bangun){
 //     console.log(`Bangun pada puku ${jam}`);
