@@ -1,5 +1,5 @@
 # Apa itu Template Literal / Template String?
-Singkatnya, Template Literal / Template String adalah String Literal yang memungkinkan adanya expression di dalamanya. Dah si gitu aja.
+Singkatnya, Template Literal / Template String adalah String Literal yang memungkinkan adanya expression di dalamnya. Dah si gitu aja.
 Eh bentar ada fungsinya.
 
 # Fungsi 

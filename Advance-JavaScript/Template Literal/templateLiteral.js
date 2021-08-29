@@ -17,9 +17,16 @@ console.log(`${alert("Hello")}`);
 console.log(`Ini adalah
 Multi line string
 menggunakan Template Literal`);
+
 // Atau fragments HTML : 
 const saya = {
     nama: "Sofyan",
     umur: (new Date().getFullYear() - 2004),
-    email: "rizlisofyan54@gmail.com"
+    email: "rizkisofyan54@gmail.com"
 }
+const myData = `<div class="myData">
+<h3>Data Saia</h3>
+<ul>
+
+</ul>
+</div>`;
