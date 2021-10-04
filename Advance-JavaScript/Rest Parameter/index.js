@@ -28,6 +28,6 @@ const { ketua, ...beban} = kelompok;
 console.log('Masuk ke variable ketua : ', ketua);
 console.log('Masuk ke variable beban : ', beban);
 // Property objek yang pertama yaitu ketua yang isinya Sofyam masuk ke variabel ketua dan 
-// sisanya masuk ke rest parameter mayat
+// sisanya masuk ke rest parameter beban
 
 // udah si gitu doang
