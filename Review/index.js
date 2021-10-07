@@ -1,35 +1,223 @@
-'use strict';
+// 'use strict';
 
+/* ============================================================ Object ============================================================ */
 // Object Literal
-const saya = {
-    nama : "Mohamad Rizki Sofyan",
-    umur : new Date().getFullYear() - 2004,
-    alamat : {
-        Negara : "Indonesia",
-        Provinsi : "Jawa Barat",
-        Kabupaten : "Bandung"
+// let mahasiswa = {
+//     nama : "Nama Mahasiswa",
+//     energi : 10,
+//     makan : function(porsi){
+//         this.energi = this.energi += porsi;
+//         console.log(`Selamat makan ${this.nama} !`);
+//     }
+// }
+
+// Function Declaration
+// const methodMahasiswa = {
+//     makan : function(porsi){
+//         this.energi += porsi;
+//         console.log(`Selamat makan ${this.nama}`)
+//     },
+//     main : function(jam){
+//         this.energi -= jam;
+//         console.log(`${this.nama} selamat makan`);
+//     }
+// }
+// function Mahasiswa(nama, energi){
+//     let mahasiswa = Object.create(methodMahasiswa);
+//     mahasiswa.nama = nama;
+//     mahasiswa.energi = energi;
+//     return mahasiswa;
+// }
+// let nama = Mahasiswa("Nama", 10);
+// nama.makan(1);
+
+// Constructor Function
+// function Mahasiswa(nama, energi){
+//     this.nama = nama;
+//     this.energi = energi;
+//     this.makan = function(porsi){
+//         this.energi += porsi;
+//         console.log(`Selamat makan ${this.nama}`)
+//     }
+//     this.main = function(jam){
+//         this.energi -= jam;
+//         console.log(`${this.nama} selamat main!`);
+//     }
+// }
+
+// let Sandhika = new Mahasiswa("Sandhika", 10);
+
+// Prototype
+// function Mahasiswa(nama, energi){
+//     this.nama = nama;
+//     this.energi = energi;
+// }
+// Mahasiswa.prototype.makan = function(porsi){
+//     this.energi += porsi;
+//     return `Hai ${this.nama}, selamat makan! Sekarang kamu memiliki energi sebesar ${this.energi}`;
+// }
+// Mahasiswa.prototype.main = function(jam){
+//     this.energi -= jam;
+//     return `Hai ${this.nama}, Selamat Bermain! Sekarang kamu memiliki ${this.energi} energi tersisa`;
+// }
+// Mahasiswa.prototype.tidur = function(jam){
+//     this.energi += jam * 2;
+//     return `Hai ${this.nama}, Selamat Tidur! Sekarang kamu memiliki energi sebesar ${this.energi}`;
+// }
+// let Sofyan = new Mahasiswa("Sofyan", 10);
+
+// class Mahasiswa{
+//     constructor(nama, energi){
+//         this.nama = nama;
+//         this.energi = energi;
+//     }
+//     makan(porsi){
+//         this.energi += porsi;
+//         return `Hai ${this.nama}, selamat makan! Sekarang kamu memiliki energi sebesar ${this.energi}`;
+//     }
+//     main(jam){
+//         this.energi -= jam;
+//         return `Hai ${this.nama}, Selamat Bermain! Sekarang kamu memiliki ${this.energi} energi tersisa`;
+//     }
+//     tidur(){
+//         this.energi += jam * 2;
+//         return `Hai ${this.nama}, Selamat Tidur! Sekarang kamu memiliki energi sebesar ${this.energi}`;
+//     }
+// }
+
+// const sofyan = new Mahasiswa("Sofyan", 10);
+// const methodMahasiswa = {
+//     makan : function(porsi){
+//         this.energi += porsi;
+//         return console.log(`${this.nama} Sekarang memiki energi sebesar ${this.energi}`);
+//     },
+//     tidur : function(jam){
+//         this.energi += jam*2;
+//         return console.log(`${this.nama} Sekarang memiki energi sebesar ${this.energi}`);
+//     }
+// }
+// const Mahasiswa = (nama, energi) => {
+//     let mahasiswa = Object.create(methodMahasiswa);
+//     mahasiswa.nama = nama;
+//     mahasiswa.energi = energi;
+//     return mahasiswa;
+// }
+// let sofyan = Mahasiswa("Sofyan", 10);
+// sofyan.makan(12);
+// console.log("https://www.rzkfyn.my.id/justyui.png");
+
+// ============================================================ Execution Context, Hoisting & scope ============================================================
+/*
+Dalam pengeksekusian Java Script terdapat 3 tahap yang pertama adalah hoisting
+dimana JS akan mencari apakah ada variable dan fungsi pada baris kode jika ada
+variable akan diisi terlebih dahulu dengan undefined dan fungsi akan diisi oleh
+isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
+ */
+// var nama = undefined;
+// console.log(nama);
+
+
+// function a(){
+//     console.log('ini a');
+//     function b(){
+//         console.log('ini b');
+//         function c(){
+//             console.log('ini c');
+//         }
+//         c();
+//     }
+//     b();
+// }
+
+// a();
+
+// var username = 'rzkfyn';
+
+// function cetakUrl(username){
+
+//     var instagramUrl = 'https://instagram.com/';
+//     return instagramUrl+username;
+
+// }
+
+// console.log(cetakUrl("mamang"));
+// function satu(){
+//     let nama = 'Sofyan';
+//     console.log(nama);
+// }
+// function dua(){
+//     console.log(nama);
+// }
+
+// console.log(nama);
+// var nama = 'Erik';
+// satu();
+// dua('Dody');
+// console.log(nama);
+
+// ======================================================== Closures ===========================================================
+// Contoh Closure
+// function init(){
+//     let nama = "Sofyan";
+//     function tampilNama(){
+//         console.log(nama);
+//     }
+//     tampilNama();
+// }
+// init();
+// 
+function init(){
+    function tampilNama(nama){
+        console.log(nama);
+    }
+    return tampilNama;
+}
+let tampilNama = init();
+tampilNama("Sofyan");
+// Function Factories
+// function sapa(){
+//     return function selamat(waktu){
+//         console.log(`Halo! selamat ${waktu}`);
+//     }
+// }
+
+// const sapaPagi = sapa();
+// sapaPagi('pagi');
+
+// function sapaa(){
+//     let nama = "Sofyan";
+//     return function kegiatan(kegiatan){
+//         console.log(`Halo ${nama}! selamat ${kegiatan}`);
+//     }
+// }
+
+// const sapaMain = sapaa();
+// const sapaMakan = sapaa();
+// const sapaSekolah = sapaa();
+// const sapaPergi = sapaa();
+// sapaMain('Main');
+// sapaMakan('Makan');
+// sapaPergi('pergi');
+
+
+(function sayHello(nama){
+    console.log("Halo "+nama);
+})("Sofyan");
+
+console.log(0.1+0.2);
+function add(){
+    let counter = 0;
+    return () => {
+        return counter++;
     }
 };
-
-// function object
-const saya1 = (nama, umur) => {
-    const saya = {}
-    saya.nama = nama;
-    saya.umur = umur;
-    return saya;
-}
-//Class Object
-const saya2 = function(nama, umur){
-    this.nama = nama;
-    this.umur = umur;
-}
-saya2.prototype.makan = function(){
-    return this.nama.concat(" Sedang makan");
-}
-
-class Saya3{
-    constructor(nama, umur){
-        this.nama = nama;
-        this.umur = umur;
-    }
-}
+let a = add();
+console.log(a());
+console.log(a());
+console.log(a());
+console.log(a());
+console.log(a());
+const newLocal = async function (nama) {
+    console.log(nama);
+};
+const gotMyName = newLocal;
