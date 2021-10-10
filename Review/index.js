@@ -155,7 +155,7 @@ isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
 // dua('Dody');
 // console.log(nama);
 
-// ======================================================== Closures ===========================================================
+/* ======================================================== Closures =========================================================== */
 // Contoh Closure
 // function init(){
 //     let nama = "Sofyan";
@@ -166,14 +166,14 @@ isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
 // }
 // init();
 // 
-function init(){
-    function tampilNama(nama){
-        console.log(nama);
-    }
-    return tampilNama;
-}
-let tampilNama = init();
-tampilNama("Sofyan");
+// function init(){
+//     function tampilNama(nama){
+//         console.log(nama);
+//     }
+//     return tampilNama;
+// }
+// let tampilNama = init();
+// tampilNama("Sofyan");
 // Function Factories
 // function sapa(){
 //     return function selamat(waktu){
@@ -199,25 +199,66 @@ tampilNama("Sofyan");
 // sapaMakan('Makan');
 // sapaPergi('pergi');
 
+// (function sayHello(nama){
+//     console.log("Halo "+nama);
+// })("Sofyan");
+// let add = (function(){
+//     let counter = 0;
+//     return () => {
+//         return counter++;
+//     }
+// })();
+// console.log(add());
+// console.log(add());
+// console.log(add());
+// console.log(add());
+// console.log(add());
 
-(function sayHello(nama){
-    console.log("Halo "+nama);
-})("Sofyan");
+/* ============================================================ Arrow Function ============================================================ */
+// Contoh : 
+// const tampilNama = function(nama){
+//     return `Halo ${nama}`;
+// }
+//Bisa diringkas menjadi : 
+// const tampilNama = (nama) => {
+//     return `Halo ${nama}`;
+// }
+// Bisa diringkas lagi : 
+// const tampilNama = nama => `Halo ${nama}`;
+// Wajib menggunakan () jika parameter lebih dari 1
+// This pada Arrow Function
 
-console.log(0.1+0.2);
-function add(){
-    let counter = 0;
-    return () => {
-        return counter++;
+// const Mahaiswa = function(nama, umur){
+//     this.nama = "Sofyan";
+//     this.umur = 33;
+//     console.log(this);
+// }
+// this.alert("Hello");
+// Konsep this pada arrow function
+const arrowFunction = (() => console.log(this))();
+(function Biasa(){
+    console.log(this);
+})();
+function Mahasiswa(){
+    this.nama = 'Sofyan';
+    this.thisItuApa = () => {
+        console.log(this);
     }
-};
-let a = add();
-console.log(a());
-console.log(a());
-console.log(a());
-console.log(a());
-console.log(a());
-const newLocal = async function (nama) {
-    console.log(nama);
-};
-const gotMyName = newLocal;
+}
+new Mahasiswa().thisItuApa();
+const box = document.querySelector('.box');
+box.addEventListener('click', function(){
+    let size = 'size';
+    let caption = 'caption';
+    let temp;
+
+    if(this.classList.contains('size')){
+        temp = size;
+        size = caption;
+        caption = temp;
+    }
+    this.classList.toggle(size);
+    setTimeout(() => {
+        this.classList.toggle(caption);
+    },600)
+});
