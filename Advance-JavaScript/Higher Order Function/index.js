@@ -3,7 +3,7 @@
 // Contoh Sederhana : 
 // function bangunTidur(jam, bangun){
 //     console.log(`Bangun pada puku ${jam}`);
-//     bangun();
+//     bangun();a
 // };
 
 // function bangun(){

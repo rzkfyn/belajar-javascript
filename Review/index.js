@@ -106,7 +106,7 @@
 // sofyan.makan(12);
 // console.log("https://www.rzkfyn.my.id/justyui.png");
 
-// ============================================================ Execution Context, Hoisting & scope ============================================================
+/* ============================================================ Execution Context, Hoisting & scope ============================================================ */
 /*
 Dalam pengeksekusian Java Script terdapat 3 tahap yang pertama adalah hoisting
 dimana JS akan mencari apakah ada variable dan fungsi pada baris kode jika ada
@@ -252,13 +252,15 @@ box.addEventListener('click', function(){
     let caption = 'caption';
     let temp;
 
-    if(this.classList.contains('size')){
-        temp = size;
-        size = caption;
-        caption = temp;
-    }
-    this.classList.toggle(size);
-    setTimeout(() => {
-        this.classList.toggle(caption);
-    },600)
+    setInterval(() => {
+        if(this.classList.contains('size')){
+            temp = size;
+            size = caption;
+            caption = temp;
+        };
+        this.classList.toggle(size);
+        setTimeout(() => {
+            this.classList.toggle(caption);
+        },600);
+    }, 600);
 });

@@ -18,3 +18,5 @@
 //     default : 
 //         console.log(`Lu sapa ngent`);
 // }
+nama = "Sofyan";
+nama === "Sofyan" ? console.log("Yes") : console.log("no");
