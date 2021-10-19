@@ -235,32 +235,45 @@ isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
 // }
 // this.alert("Hello");
 // Konsep this pada arrow function
-const arrowFunction = (() => console.log(this))();
-(function Biasa(){
-    console.log(this);
-})();
-function Mahasiswa(){
-    this.nama = 'Sofyan';
-    this.thisItuApa = () => {
-        console.log(this);
-    }
-}
-new Mahasiswa().thisItuApa();
-const box = document.querySelector('.box');
-box.addEventListener('click', function(){
-    let size = 'size';
-    let caption = 'caption';
-    let temp;
+// const arrowFunction = (() => console.log(this))();
+// (function Biasa(){
+//     console.log(this);
+// })();
+// function Mahasiswa(){
+//     this.nama = 'Sofyan';
+//     this.thisItuApa = () => {
+//         console.log(this);
+//     }
+// }
+// new Mahasiswa().thisItuApa();
+// const box = document.querySelector('.box');
+// box.addEventListener('click', function(){
+//     let size = 'size';
+//     let caption = 'caption';
+//     let temp;
 
-    setInterval(() => {
-        if(this.classList.contains('size')){
-            temp = size;
-            size = caption;
-            caption = temp;
-        };
-        this.classList.toggle(size);
-        setTimeout(() => {
-            this.classList.toggle(caption);
-        },600);
-    }, 600);
-});
+//     setInterval(() => {
+//         if(this.classList.contains('size')){
+//             temp = size;
+//             size = caption;
+//             caption = temp;
+//         };
+//         this.classList.toggle(size);
+//         setTimeout(() => {
+//             this.classList.toggle(caption);
+//         },600);
+//     }, 600);
+// });
+
+const add = function(){
+    let i = 0;
+    return function(){
+        return i, i+=1;
+    }
+};
+
+let a = add();
+
+setInterval(() => {
+    document.write(`${new Date().getDay()}`);
+}, 1000);
