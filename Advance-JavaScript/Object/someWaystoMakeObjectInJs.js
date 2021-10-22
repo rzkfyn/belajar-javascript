@@ -129,3 +129,50 @@
 // }
 // const sofyan = new Mahasiswa("Mohamad Rizki Sofyan", 10);
 // console.log(sofyan);
+/*  =============== Object.create() ===============*/
+const methodObj = {
+    makan : function(porsi){
+        this.energi += porsi;
+        return console.log(`${this.nama} Sekarang memiliki energi sebesar ${this.energi}`);
+    }
+}
+const manusia = function(nama, energi){
+    let manusia = Object.create(methodObj);
+    manusia.nama = nama;
+    manusia.energi = energi;
+    return manusia;
+}
+const Sofyan = manusia("Sofyan", 10);
+console.log(Sofyan);
+Sofyan.makan(10);
+console.log(Sofyan);
+
+/*  =============== prototype ===============*/
+// Versi Constructor Function
+const Objects = function(nama, umur){
+    this.nama = nama;
+    this.umur = umur;
+    this.energi = 10;
+}
+Objects.prototype.makan = function(porsi){
+    this.energi += porsi;
+    return console.log(`${this.nama} Sekarang memiliki energi sebesar ${this.energi}`);
+}
+const object = new Objects("Sofyan", 17);
+console.log(object);
+object.makan(3);
+// Versi ES6 Class
+class Objs{
+    constructor(nama, umur){
+        this.nama = nama;
+        this.umur = umur;
+        this.energi = 10;
+    }
+    makan(porsi){
+        this.energi += porsi;
+        return console.log(`${this.nama} Sekarang memiliki energi sebesar ${this.energi}`)
+    }
+}
+const objs = new Objs("Sofyan", 17);
+console.log(objs);
+objs.makan(2);
