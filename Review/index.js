@@ -264,16 +264,53 @@ isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
 //         },600);
 //     }, 600);
 // });
+// const add = function(){
+//     let i = 0;
+//     return function(){
+//         return i, i+=1;
+//     }
+// };
 
-const add = function(){
-    let i = 0;
-    return function(){
-        return i, i+=1;
-    }
-};
+// let a = add();
 
-let a = add();
+// setInterval(() => {
+//     document.write(`${new Date().getDay()}`);
+// }, 1000);
 
-setInterval(() => {
-    document.write(`${new Date().getDay()}`);
-}, 1000);
+/* ======================================================== Higher Order Function =========================================================== */
+
+/**
+ * Higher order function merupakan fungsi yang menggunakan fungsi lain sebagai argumen(callback) ataupun 
+ * fungsi yang return value nya fungsi lain
+ */
+
+/* Contoh - contoh Higher Order Function */
+const angka = [-1,8,9,1,4,-5,-4,3,2,9];
+
+// 1. filter
+const newAngka = angka.filter(e => e >= 3);
+console.log(newAngka);
+console.log(' ');
+
+// 2. map
+const newAngka1 = angka.map(e => e*2);
+console.log(newAngka1);
+console.log(' ');
+
+// 3. reduce
+/* 
+rumus : namaArray.reduce(function(acumulator, currentvalue){
+    kode disini, nilai awal(opt, default = 0);
+}) 
+*/
+const newAngka2 = angka.reduce((a,cv) => a+cv);
+console.log(newAngka2);
+console.log(" ");
+
+/* Chaining Method */
+// Menyatukan beberapa method
+const newAngka3 = angka.filter(e => e>5)
+    .map(e => e*3)
+    .reduce((a,b) => a+b, 10)
+    .toString();
+console.log(newAngka3);
