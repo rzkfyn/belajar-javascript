@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 /* ============================================================ Object ============================================================ */
 // Object Literal
@@ -285,32 +285,74 @@ isi fungsi tersebut dan mulai meng eksekusi kode dari atas ke bawah
  */
 
 /* Contoh - contoh Higher Order Function */
-const angka = [-1,8,9,1,4,-5,-4,3,2,9];
+// const angka = [-1,8,9,1,4,-5,-4,3,2,9];
 
 // 1. filter
-const newAngka = angka.filter(e => e >= 3);
-console.log(newAngka);
-console.log(' ');
+// const newAngka = angka.filter(e => e >= 3);
+// console.log(newAngka);
+// console.log(' ');
 
 // 2. map
-const newAngka1 = angka.map(e => e*2);
-console.log(newAngka1);
-console.log(' ');
+// const newAngka1 = angka.map(e => e*2);
+// console.log(newAngka1);
+// console.log(' ');
 
 // 3. reduce
 /* 
 rumus : namaArray.reduce(function(acumulator, currentvalue){
-    kode disini, nilai awal(opt, default = 0);
+    kode disini, nilai-awal(opt, default = 0);
 }) 
 */
-const newAngka2 = angka.reduce((a,cv) => a+cv);
-console.log(newAngka2);
-console.log(" ");
+// const newAngka2 = angka.reduce((a,cv) => a+cv);
+// console.log(newAngka2);
+// console.log(" ");
 
 /* Chaining Method */
 // Menyatukan beberapa method
-const newAngka3 = angka.filter(e => e>5)
-    .map(e => e*3)
-    .reduce((a,b) => a+b, 10)
-    .toString();
-console.log(newAngka3);
+// const newAngka3 = angka.filter(e => e>5)
+//     .map(e => e*3)
+//     .reduce((a,b) => a+b, 10)
+//     .toString();
+// console.log(newAngka3);
+
+
+/* Latihan Higher Order Function */
+// 'use strict';
+// const list = document.querySelectorAll('li');
+// const videoJavaScript = [];
+// for(const daftar of list){
+//     if(daftar.innerText.toString().startsWith("JAVASCRIPT")) videoJavaScript.push((daftar.getAttribute('data-duration').split(":")));
+// }
+
+// let totalMenit = 0;
+// let totalDetik = 0;
+// for(let vid of videoJavaScript){
+//     totalMenit += (vid[0]*1);
+//     totalDetik += (vid[1]*1);
+// }
+// console.log(totalDetik);
+// let totalKeseluruhanDetik = ((totalMenit*60) + totalDetik);
+// console.log(totalDetik);
+// const jam = (totalKeseluruhanDetik - totalKeseluruhanDetik % 3600) / 3600;
+// const menit = (((totalKeseluruhanDetik % 3600) - ((totalKeseluruhanDetik % 3600) % 60)) / 60);
+// const detik = ((totalKeseluruhanDetik % 3600) % 60);
+// console.log(jam, menit, detik);
+
+// document.querySelector('.total-durasi').innerText = `${jam} Jam, ${menit} Menit, ${detik} Detik.`;
+// document.querySelector('.jumlah-video').innerText = videoJavaScript.length;
+
+/* The Right Way */
+
+const videos = Array.from(document.querySelectorAll('[data-duration]'));
+const jsVideos = videos.filter(e => e.textContent.includes('JAVASCRIPT LANJUTAN'))
+    .map(e => e.getAttribute('data-duration'))
+    .map(e => e.split(":"))
+    .map(e => {
+        return (e[0] * 60) + parseInt(e[1]);
+    })
+    .reduce((a,b) => a+b);
+
+const jam = Math.floor(jsVideos / 3200);    
+const menit = Math.floor((jsVideos - jam*3600) / 60);
+const detik = jsVideos - ((jam*3600) + (menit*60));
+console.log(jam, menit, detik);
