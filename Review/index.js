@@ -342,17 +342,44 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // document.querySelector('.jumlah-video').innerText = videoJavaScript.length;
 
 /* The Right Way */
+// const videos = Array.from(document.querySelectorAll('[data-duration]'));
+// const jsVideos = videos.filter(e => e.textContent.includes('JAVASCRIPT LANJUTAN'))
+//     .map(e => e.getAttribute('data-duration'))
+//     .map(e => e.split(":"))
+//     .map(e => {
+//         return (e[0] * 60) + parseInt(e[1]);
+//     })
+//     .reduce((a,b) => a+b);
 
-const videos = Array.from(document.querySelectorAll('[data-duration]'));
-const jsVideos = videos.filter(e => e.textContent.includes('JAVASCRIPT LANJUTAN'))
-    .map(e => e.getAttribute('data-duration'))
-    .map(e => e.split(":"))
-    .map(e => {
-        return (e[0] * 60) + parseInt(e[1]);
-    })
-    .reduce((a,b) => a+b);
+// const jam = Math.floor(jsVideos / 3200);    
+// const menit = Math.floor((jsVideos - jam*3600) / 60);
+// const detik = jsVideos - ((jam*3600) + (menit*60));
+// console.log(jam, menit, detik);
 
-const jam = Math.floor(jsVideos / 3200);    
-const menit = Math.floor((jsVideos - jam*3600) / 60);
-const detik = jsVideos - ((jam*3600) + (menit*60));
-console.log(jam, menit, detik);
+/* ======================================================== Template Literals || Template String=========================================================== */
+// const nama = "Sofyan";
+// const umur = 10;
+// console.log(`Halo nama saya adalah ${nama} dan saya berumur ${umur} tahun`);
+
+// Expression
+// const x = 10;
+// console.log(`${x === 10 ? 'ya' : 'tidak'}`);
+
+// // HTML Fragment
+// const mhs = {
+//     nama : 'Mohamad Rizki Sofyan',
+//     umur : 17,
+//     nrp : 1237347,
+//     email : 'rzkfyn@gmail.com'
+// };
+// const el = `
+// <div class="mhs">
+//     <ul>
+//         <li>Nama : ${mhs.nama}</li>
+//         <li>umur : ${mhs.umur}</li>
+//         <li>nrp : ${mhs.nrp}</li>
+//         <li>email : ${mhs.email}</li>
+//     </ul>
+// </div>`;
+// console.log(el);
+// document.querySelector('body').innerHTML = el;
