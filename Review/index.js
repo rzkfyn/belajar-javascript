@@ -367,19 +367,103 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 
 // // HTML Fragment
 // const mhs = {
-//     nama : 'Mohamad Rizki Sofyan',
-//     umur : 17,
-//     nrp : 1237347,
-//     email : 'rzkfyn@gmail.com'
-// };
+    //     nama : 'Mohamad Rizki Sofyan',
+    //     umur : 17,
+    //     nrp : 1237347,
+    //     email : 'rzkfyn@gmail.com'
+    // };
+    // const el = `
+    // <div class="mhs">
+    //     <ul>
+    //         <li>Nama : ${mhs.nama}</li>
+    //         <li>umur : ${mhs.umur}</li>
+    //         <li>nrp : ${mhs.nrp}</li>
+    //         <li>email : ${mhs.email}</li>
+    //     </ul>
+    // </div>`;
+    // console.log(el);
+    // document.querySelector('body').innerHTML = el;
+
+/* ======================================================== Latihan Template Literals || Template String=========================================================== */
+// 1. Loping
+
+// const mhs = [
+//     {
+//         nama : 'Rizki',
+//         email : 'rzkfyn@gmail.com'
+//     },
+//     {
+//         nama : 'Dodi',
+//         email : 'rzkfyn@gmail.com'
+//     },
+//     {
+//         nama : 'Erik',
+//         email : 'rzkfyn@gmail.com'
+//     }
+// ];
 // const el = `
-// <div class="mhs">
-//     <ul>
-//         <li>Nama : ${mhs.nama}</li>
-//         <li>umur : ${mhs.umur}</li>
-//         <li>nrp : ${mhs.nrp}</li>
-//         <li>email : ${mhs.email}</li>
-//     </ul>
+// <div class="mhs"> 
+//     ${mhs.map( e => `<h3 class="nama">${e.nama}</h3><span class="email">${e.email}</span>`).join(" ")}
 // </div>`;
 // console.log(el);
-// document.querySelector('body').innerHTML = el;
+// document.body.innerHTML = el;   
+
+
+
+
+
+
+/* ======================================================== Tagged Template Literals=========================================================== */
+// let nama = "Sofyan";
+// let umur = new Date().getFullYear() - 2004;
+// const email = 'rzkfyn@gmail.com';
+// function iniFungsi(strings, ...values){
+//     let str = '';
+//     let i = 0;
+//     strings.forEach(element => {
+//        return str += `${element} <span class="elemen">${values[i] || ''}</span>`, i ++;;
+//     });
+//     return document.body.innerHTML = str;
+// }
+// console.log(iniFungsi`Halo nama saya adalah ${nama}, dan saya berumur ${umu
+
+// document.querySelector('button').addEventListener('mouseover', function(){
+//     this.parentElement.parentElement.style.transition = '0.5s';
+//     this.parentElement.parentElement.style.transform =`translateY(${Math.floor(Math.random() * ((window.outerHeight - 250) - 10) + 10)}px) translateX(${Math.floor(Math.random() * ((window.innerWidth - 250) - 10) + 10)}px)`;
+// })
+
+/* ======================================================== Destructuring Assignment =========================================================== */
+const perkenalan = "Halo nama saya Sofyan"
+const array = perkenalan.split(" ");
+console.log(array);
+const[satu, dua, tiga, empat] = array;
+console.log(satu);
+
+// Skipping Item(s)
+const angka = [1,2,3,4,5];
+const [satu1,dua2, , ,lima] = angka;
+console.log(satu1,dua2,lima);
+
+// swap item(s)
+let a = 1;
+let b = 2;
+console.log(a);
+console.log(b);
+[a, b] = [b, a];
+console.log(a);
+console.log(b);
+
+// Rest Parameter
+const myWaifu = ['Yoroizuka Mizore', 'Isla', 'Siesta'];
+const [hidup, ...mayat] = myWaifu;
+console.log(hidup);
+console.log(mayat);
+console.log(`Hidup : ${hidup}`);
+console.log(`Mayat : ${mayat}`);
+
+// directly destructuring array from return value
+const coba = function(){
+    return [1, 2];
+}
+const [m, k] = coba();
+console.log(m,k);
