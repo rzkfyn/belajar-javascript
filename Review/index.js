@@ -433,6 +433,7 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // })
 
 /* ======================================================== Destructuring Assignment =========================================================== */
+/* Destrycturing Array || Variable */
 const perkenalan = "Halo nama saya Sofyan"
 const array = perkenalan.split(" ");
 console.log(array);
@@ -467,3 +468,15 @@ const coba = function(){
 }
 const [m, k] = coba();
 console.log(m,k);
+
+/* Destructuring Object */
+const saya = {
+    nama : "Mohamad Rizki Sofyan",
+    umur : 17
+}
+const {nama, umur} = saya;  
+console.log(nama, umur);
+
+
+console.log(anggota["nama dia"].nama);
+/* ======================================================== Destructuring Assignment =========================================================== */
