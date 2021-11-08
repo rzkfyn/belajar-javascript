@@ -434,49 +434,82 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 
 /* ======================================================== Destructuring Assignment =========================================================== */
 /* Destrycturing Array || Variable */
-const perkenalan = "Halo nama saya Sofyan"
-const array = perkenalan.split(" ");
-console.log(array);
-const[satu, dua, tiga, empat] = array;
-console.log(satu);
+// const perkenalan = "Halo nama saya Sofyan"
+// const array = perkenalan.split(" ");
+// console.log(array);
+// const[satu, dua, tiga, empat] = array;
+// console.log(satu);
 
 // Skipping Item(s)
-const angka = [1,2,3,4,5];
-const [satu1,dua2, , ,lima] = angka;
-console.log(satu1,dua2,lima);
+// const angka = [1,2,3,4,5];
+// const [satu1,dua2, , ,lima] = angka;
+// console.log(satu1,dua2,lima);
 
 // swap item(s)
-let a = 1;
-let b = 2;
-console.log(a);
-console.log(b);
-[a, b] = [b, a];
-console.log(a);
-console.log(b);
+// let a = 1;
+// let b = 2;
+// console.log(a);
+// console.log(b);
+// [a, b] = [b, a];
+// console.log(a);
+// console.log(b);
 
 // Rest Parameter
-const myWaifu = ['Yoroizuka Mizore', 'Isla', 'Siesta'];
-const [hidup, ...mayat] = myWaifu;
-console.log(hidup);
-console.log(mayat);
-console.log(`Hidup : ${hidup}`);
-console.log(`Mayat : ${mayat}`);
+// const myWaifu = ['Yoroizuka Mizore', 'Isla', 'Siesta'];
+// const [hidup, ...mayat] = myWaifu;
+// console.log(hidup);
+// console.log(mayat);
+// console.log(`Hidup : ${hidup}`);
+// console.log(`Mayat : ${mayat}`);
 
 // directly destructuring array from return value
-const coba = function(){
-    return [1, 2];
-}
-const [m, k] = coba();
-console.log(m,k);
+// const coba = function(){
+//     return [1, 2];
+// }
+// const [m, k] = coba();
+// console.log(m,k);
 
 /* Destructuring Object */
-const saya = {
-    nama : "Mohamad Rizki Sofyan",
-    umur : 17
-}
-const {nama, umur} = saya;  
-console.log(nama, umur);
+// const saya = {
+//     nama : "Mohamad Rizki Sofyan",
+//     umur : 17
+// }
+// const {nama, umur} = saya;  
+// console.log(nama, umur);
+
+// Directly destructure an object without declaration
+// ({nama, umur} = {nama : "Mohamad Rizki Sofyan", umur : 17});
+
+// assign to a different variable name
+
+// const saya = {
+//     nama : "Mohamad Rizki Sofyan",
+//     umur : 17
+// }
+// const {nama : n, umur : u} = saya;  
+// console.log(n, u);
+
+// Default Value
+// const saya = {
+//     nama : "Mohamad Rizki Sofyan",
+//     umur : 17,
+//     "email sekolah" : "rzkfyn@rfalfyan.tech"
+// }
+// const {nama, umur, ["email sekolah"] : e = 'default@rfalfyan.tech'} = saya;  
+// console.log(nama, umur, e);
+
+// Rest parameter
+// const saya = {
+//     nama : "Mohamad Rizki Sofyan",
+//     umur : 18,
+//     hobi : ['nafas', 'makan', 'minum']
+// }
+// const {nama, ...values} = saya;
+//  console.log(nama);
+//  console.log(values);
 
 
-console.log(anggota["nama dia"].nama);
-/* ======================================================== Destructuring Assignment =========================================================== */
+/* ======================================================== Destructuring Function =========================================================== */
+
+
+/* ======================================================== For of VS For In =========================================================== */
