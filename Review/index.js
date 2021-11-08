@@ -508,8 +508,59 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 //  console.log(nama);
 //  console.log(values);
 
-
+//  Directly Destructure Object to a function as an argument
+// const mhs = {
+//     nama : "Mohamad Rizki Sofyan",
+//     umur : 17,
+//     matKul : ['Bahasa Indonesia', 'Matematika', 'Sejarah'],
+//     jurusan : 'Teknik Informatika',
+//     nim : '12332211'
+// }
+// const getNim = function({nim : n = null}){
+//     console.log(n);
+// }
+// getNim(mhs);
 /* ======================================================== Destructuring Function =========================================================== */
+// const kalkulasi = (a, b) =>{
+//     return [a*b, a-b, a/b, a+b];
+// }
+// const [perkalian, pengurangan, pembagian, pertambahan] = kalkulasi(2,3);
+// console.log(pertambahan);
 
+// const kalkulasi = (a, b) =>{
+//     return {
+//         pertambahan : a+b,
+//         pengurangan : a-b,
+//         perkalian : a*b,
+//         pembagian : a/b
+//     };
+// }
+// const {pembagian, pertambahan }  = kalkulasi(12,10)
+// console.log(pertambahan)
 
+// const mhs = {
+//     nama : 'Mohamad Rizki Sofyan',
+//     umur : 17,
+//     nim : '1122113445',
+// }
+
+// const salam = async ({nama, umur}) => {
+//     return console.log(`Halo nama saya adalah ${nama}, dan umur saya adalah ${umur}`);
+// }
+// salam(mhs);
+
+// const mhs = {
+//     nama : 'Mohamad Rizki Sofyan',
+//     umur : 17,
+//     nim : '1122113445',
+//     nilai : {
+//         uts : 89,
+//         uas : 90
+//     }
+// }
+// const salam = async ({nama, umur, nilai : {uts, uas}}) => {
+//     return console.log(`Halo nama saya adalah ${nama}, dan umur saya adalah ${umur} dan nilai uas saya : ${uas}`);
+// }
+// salam(mhs);
 /* ======================================================== For of VS For In =========================================================== */
+    
