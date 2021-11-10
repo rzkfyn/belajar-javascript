@@ -603,3 +603,21 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // }
 
 /* ======================================================== Spread Operator =========================================================== */
+// Spread operator menggunakan sintaks ... berguna untuk memecah data iterable 
+
+// Menyatukan Array
+let arr1 = [1,2,3];
+let arr2 = [5,6,7];
+let arr3 = [...arr1, 4,...arr2]
+console.log(arr3);
+
+// Meng copy array
+let mhs = ['Bambang', 'Ghuna', 'Nimning'];
+let mhs2 = [...mhs];
+console.log(mhs);
+console.log(mhs2);
+
+// Mengubah NodeList menjadi Array
+const lists = document.getElementsByTagName('li');
+const arrLists = [...lists];
+console.log(arrLists);
