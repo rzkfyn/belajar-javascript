@@ -562,5 +562,44 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 //     return console.log(`Halo nama saya adalah ${nama}, dan umur saya adalah ${umur} dan nilai uas saya : ${uas}`);
 // }
 // salam(mhs);
+
 /* ======================================================== For of VS For In =========================================================== */
-    
+// For of bisa digunakan untuk tipe data iterable (String, Array, NodeList, arguments)
+
+// const str = "bla bla bla";
+// for(const huruf of str){
+//     console.log(huruf);
+// }
+
+// const arr = [1,2,3,4,5];
+// let i = 0;
+// for(const a of arr){
+//     i += a;
+//     console.log(i);
+// }
+
+// const lists = document.querySelectorAll('li');
+// console.log(lists);
+// for(const list of lists){
+//     list.innerHTML = `<s>${list.innerText}</s>`;
+// }
+
+// function tambahin(){
+//     let hasil = 0;
+//     for(let angka of arguments){
+//         hasil += angka;
+//     }
+//     return hasil;
+// }
+// console.log(tambahin(1,2,3,4,5,6,7,8));
+
+// For in bisa digunakn untuk looping data yang none iterable
+// const mhs = {
+//     nama : 'Mohamad Rizki Sofyan',
+//     umur : 17,
+// }
+// for(const m in mhs){
+//     console.log(mhs[m]);
+// }
+
+/* ======================================================== Spread Operator =========================================================== */
