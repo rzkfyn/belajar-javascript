@@ -606,18 +606,48 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // Spread operator menggunakan sintaks ... berguna untuk memecah data iterable 
 
 // Menyatukan Array
-let arr1 = [1,2,3];
-let arr2 = [5,6,7];
-let arr3 = [...arr1, 4,...arr2]
-console.log(arr3);
+// let arr1 = [1,2,3];
+// let arr2 = [5,6,7];
+// let arr3 = [...arr1, 4,...arr2]
+// console.log(arr3);
 
 // Meng copy array
-let mhs = ['Bambang', 'Ghuna', 'Nimning'];
-let mhs2 = [...mhs];
-console.log(mhs);
-console.log(mhs2);
+// let mhs = ['Bambang', 'Ghuna', 'Nimning'];
+// let mhs2 = [...mhs];
+// console.log(mhs);
+// console.log(mhs2);
 
 // Mengubah NodeList menjadi Array
-const lists = document.getElementsByTagName('li');
-const arrLists = [...lists];
-console.log(arrLists);
+// const lists = document.getElementsByTagName('li');
+// const arrLists = [...lists];
+// let el = '';
+// for(let list of lists){
+//     el += `<li><s>${list.innerText}</s></li>`;
+// }
+// document.querySelector('ul').innerHTML = el;
+// console.log(el);
+
+/* ======================================================== Rest Parameter =========================================================== */
+// Merepresentasikan arguments pada function menjadi array yang teak terbatas
+// Contoh Penggunaan
+// const kalkulasi = (...bilangan) => {
+//     return `Penjumlahan : ${bilangan.reduce((a,b) => a+b)}
+// Pengurangan : ${bilangan.reduce((a,b) => a-b)}
+// Perkalian : ${bilangan.reduce((a,b) => a*b)}
+// Pembagian : ${bilangan.reduce((a,b) => a/b)}
+// `
+// }
+// console.log(kalkulasi(10,2));
+// function filter(type, ...element){
+//     return element.filter(e => typeof e === type);
+// }
+// console.log(filter('number', 'Sofyan', 17,2n,true,'true'));
+// const kelompok = [
+//     'Mohamad Rizki Sofyan',
+//     'Bambang Ardiwinata',
+//     'Kelvin Pancoran',
+//     'Aditya Panawara',
+//     'Kunco Adi Nugraha'
+// ]
+// let [ketua, sekretaris, bendahara, ...anggota] = kelompok;
+// console.log(ketua);
