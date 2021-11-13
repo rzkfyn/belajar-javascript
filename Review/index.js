@@ -651,3 +651,25 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // ]
 // let [ketua, sekretaris, bendahara, ...anggota] = kelompok;
 // console.log(ketua);
+
+/* ======================================================== Asynchronus JavaScript =========================================================== */
+console.log('1');
+setTimeout(()=> {
+    console.log('2');
+}, 0);
+console.log('3');
+
+const button = document.querySelector('button');
+button.addEventListener('click', function onClick(){
+    setTimeout(function(){
+        console.log('Kamu Mengklik Tombolnya');
+    }, 0);
+    console.log('1');
+    console.log('2');
+    console.log('3');
+    console.log('4');
+    console.log('5');
+});
+for(let i = 0; i < 1000; i ++){
+    console.log(1);
+}
