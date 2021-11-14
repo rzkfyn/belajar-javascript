@@ -1,0 +1,20 @@
+[
+    {
+    "nama" : "Mohamad Rizki Sofyan",
+    "nisn" : "1212044556",
+    "email" : "rzkfyn@gmail.com",
+    "jurusan" : "Teknik Informatika"
+    },
+    {
+        "nama" : "Refal Falah Fadhilah",
+        "nisn" : "1010044556",
+        "email" : "refalfalah@gmail.com",
+        "jurusan" : "Teknik Informatika"
+    },
+    {
+        "nama" : "Bambang Sutejo",
+        "nisn" : "1345664556",
+        "email" : "bambang@gmail.com",
+        "jurusan" : "Teknik Informatika"
+    }
+]

@@ -653,23 +653,100 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // console.log(ketua);
 
 /* ======================================================== Asynchronus JavaScript =========================================================== */
-console.log('1');
-setTimeout(()=> {
-    console.log('2');
-}, 0);
-console.log('3');
+// console.log('1');
+// setTimeout(()=> {
+//     console.log('2');
+// }, 0);
+// console.log('3');
 
-const button = document.querySelector('button');
-button.addEventListener('click', function onClick(){
-    setTimeout(function(){
-        console.log('Kamu Mengklik Tombolnya');
-    }, 0);
-    console.log('1');
-    console.log('2');
-    console.log('3');
-    console.log('4');
-    console.log('5');
-});
-for(let i = 0; i < 1000; i ++){
-    console.log(1);
+// const button = document.querySelector('button');
+// button.addEventListener('click', function onClick(){
+//     setTimeout(function(){
+//         console.log('Kamu Mengklik Tombolnya');
+//     }, 0);
+//     console.log('1');
+// });
+// for(let i = 0; i < 1000; i ++){
+//     console.log(1);
+// }
+
+/* ======================================================== Callback =========================================================== */
+// Synchronus callback
+// function halo(nama){
+//     alert(`Halo ${nama}`);
+// }
+// function tampilkanPesan(callback){
+//     const nama = prompt('Masukkan nama');
+//     return callback(nama);
+// }
+// tampilkanPesan(nama => alert(`Halo ${nama}`));
+
+// const siswa = [
+//     {
+//         "nama" : "Mohamad Rizki Sofyan",
+//         "nisn" : "1212044556",
+//         "email" : "rzkfyn@gmail.com",
+//         "jurusan" : "Teknik Informatika"
+//     },
+//     {
+//         "nama" : "Refal Falah Fadhilah",
+//         "nisn" : "1010044556",
+//         "email" : "refalfalah@gmail.com",
+//         "jurusan" : "Teknik Informatika"
+//     },
+//     {
+//         "nama" : "Bambang Sutejo",
+//         "nisn" : "1345664556",
+//         "email" : "bambang@gmail.com",
+//         "jurusan" : "Teknik Informatika"
+//     }
+// ]
+// console.log('mulai');
+// siswa.forEach(m => {
+//     for(let i = 0; i < 1000000; i++){
+//         const date = new Date();
+//     }
+//     console.log(m.nama)
+// });
+// console.log('Selesai');
+
+// function getDataMahasiswa(url, success, error){
+//     let  xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function(){
+//         if(xhr.readyState === 4){
+//             if(xhr.status === 200){
+//                 success(xhr.response);
+//             }else if(xhr.status === 404){
+//                 error(xhr.responseText);
+//             }
+//         }
+//     }
+
+//     xhr.open('get', url)
+//     xhr.send();
+// }
+// console.log('Mulai');
+// getDataMahasiswa('siswa.json', results => console.log(JSON.parse(results).forEach(e => console.log(e.nama))), (err) => console.log(err));
+// console.log('Selesai');
+function getSiswaNisn(url, success, error){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4){
+            if(xhr.status === 200) return success(xhr.response);
+            return error(xhr.response);
+        }
+    }
+    xhr.open('get', url);
+    xhr.send();
 }
+console.log('mulai');
+
+getSiswaNisn('siswa.json', results => {
+    const siswa = JSON.parse(results);
+    siswa.forEach(element => {
+        return console.log(element.nama);
+    });
+}, err => document.querySelector('html').innerHTML = err);
+
+console.log('selesai');
