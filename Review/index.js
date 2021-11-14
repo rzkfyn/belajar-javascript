@@ -728,25 +728,39 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // console.log('Mulai');
 // getDataMahasiswa('siswa.json', results => console.log(JSON.parse(results).forEach(e => console.log(e.nama))), (err) => console.log(err));
 // console.log('Selesai');
-function getSiswaNisn(url, success, error){
-    const xhr = new XMLHttpRequest();
+// function getSiswaNisn(url, success, error){
+//     const xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4){
-            if(xhr.status === 200) return success(xhr.response);
-            return error(xhr.response);
-        }
-    }
-    xhr.open('get', url);
-    xhr.send();
-}
+//     xhr.onreadystatechange = () => {
+//         if(xhr.readyState === 4){
+//             if(xhr.status === 200) return success(xhr.response);
+//             return error(xhr.response);
+//         }
+//     }
+//     xhr.open('get', url);
+//     xhr.send();
+// }
+// console.log('mulai');
+
+// getSiswaNisn('siswa.json', results => {
+//     const siswa = JSON.parse(results);
+//     siswa.forEach(element => {
+//         return console.log(element.nama);
+//     });
+// }, err => document.querySelector('html').innerHTML = err);
+
+// console.log('selesai');
+// JQuery
 console.log('mulai');
-
-getSiswaNisn('siswa.json', results => {
-    const siswa = JSON.parse(results);
-    siswa.forEach(element => {
-        return console.log(element.nama);
-    });
-}, err => document.querySelector('html').innerHTML = err);
-
+$.ajax({
+    url: 'siswa.jso',
+    success : function (results) {
+        results.forEach(element => {
+            return console.log(element.nama);
+        });
+    },
+    error: function (err) {
+        return console.log(err.responseText);
+    }
+})
 console.log('selesai');
