@@ -1,3 +1,5 @@
+const apiKey = '4c6cd34a&s';
+
 const createCard = (posterUrl, title, year) =>{
     const card = document.createElement('div');
     card.classList.add('card');
@@ -12,15 +14,15 @@ const createCardBody = (title, year) => {
     cardBody.innerHTML = `<h5 class="card-title">${title}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${year}</h6>`;
     cardBody.append(createButton());
+
     return cardBody;
 }
-
 const createColumn = (posterUrl, title, year) => {
     const column = document.createElement('div')
-    column.classList.add('col-md-4', 'my-5');
+    column.classList.add('col-md-4', 'my-5', 'column');
     column.append(createCard(posterUrl, title, year));
 
-    return column
+    return column;
 }
 const createButton = () => {
     const button = document.createElement('a');
@@ -31,16 +33,22 @@ const createButton = () => {
     return button;
 }
 
-$.ajax({
-    url: 'http://www.omdbapi.com/?apikey=4c6cd34a&s=Dilan',
-    success : results => {
-        const movies = results.Search;
-        for(const movie of movies){
-            document.querySelector('.results')
-                .append(createColumn(movie.Poster, movie.Title, movie.Year));
-        }
-    },
-    error : err => {
-        console.log(err.responseText);
+document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    for(const column of document.querySelectorAll('.column')){
+        column.remove();
     }
-})
+    $.ajax({
+        url: `http://www.omdbapi.com/?apikey=${apiKey}=${document.querySelector('input').value}`,
+        success: results => {
+            const movies = results.Search;
+            for (const movie of movies) {
+                $('.results')
+                    .append(createColumn(movie.Poster, movie.Title, movie.Year));
+            }
+        },
+        error: err => {
+            console.log(err.responseText);
+        }
+    });
+});
