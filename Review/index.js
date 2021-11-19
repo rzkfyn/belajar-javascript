@@ -742,7 +742,7 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 // }
 // console.log('mulai');
 
-// getSiswaNisn('siswa.json', results => {
+// getSiswaNisn('./data/siswa.json', results => {
 //     const siswa = JSON.parse(results);
 //     siswa.forEach(element => {
 //         return console.log(element.nama);
@@ -751,16 +751,48 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 
 // console.log('selesai');
 // JQuery
-console.log('mulai');
-$.ajax({
-    url: 'siswa.jso',
-    success : function (results) {
-        results.forEach(element => {
-            return console.log(element.nama);
-        });
-    },
-    error: function (err) {
-        return console.log(err.responseText);
-    }
-})
-console.log('selesai');
+// console.log('mulai');
+// $.ajax({
+//     url: 'siswa.jso',
+//     success : function (results) {
+//         results.forEach(element => {
+//             return console.log(element.nama);
+//         });
+//     },
+//     error: function (err) {
+//         return console.log(err.responseText);
+//     }
+// })
+// console.log('selesai');
+
+// Mengambil response API dengan callback menggunakan vanilla Js
+// object XMLHttpRequest()
+// function getMoviesData(url, success, error){
+//     const xhr = new XMLHttpRequest();
+
+//     xhr.addEventListener('readystatechange', function(){
+//         if(this.readyState !== 4) return;
+//         if(this.status === 200) return success(this.response);
+//         return error(this.responseText);
+//     });
+//     xhr.open('get', url);
+//     xhr.send();
+// }
+// console.log('Mulai');
+// getMoviesData('http://www.omdbapi.com/?apikey=4c6cd34a&s&s=Eromanga Sensei', results => {
+//     console.table(JSON.parse(results).Search);
+// }, response => console.log(response));
+// console.log('selesai');
+
+// $.ajax({
+//     url : 'http://www.omdbapi.com/?apikey=4c6cd34a&s&s=Eromanga Sensei',
+//     success : results => {
+//         console.log(results.Search);
+//     },
+//     error : response => {
+//         console.log(response);
+//     }
+// });
+
+fetch('http://www.omdbapi.com/?apikey=4c6cd34a&s&=Eromanga Sense')
+    .then(res => console.log(res.json())).catch(err => console.log(err));
