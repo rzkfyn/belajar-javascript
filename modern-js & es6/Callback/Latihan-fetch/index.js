@@ -1,33 +1,6 @@
 'use strict';
+
 const apiKey = '4c6cd34a&s';
-
-// document.querySelector('.search-btn').addEventListener('click', () => {
-//     fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${document.querySelector('.keyword').value}`)
-//     .then(results => results.json()
-//     .then(res => {
-//         const movies = res.Search;
-//         let cards = '';
-//         movies.forEach(movie => {
-//             cards += showCards(movie);
-//         });
-//         document.querySelector('.movie-container').innerHTML = cards;
-
-//         for(const detailBtn of document.querySelectorAll('.modal-detail-btn')){
-//             detailBtn.addEventListener('click', function(){
-//                 fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${this.dataset.imdbid}`)
-//                     .then(res => res.json()
-//                     .then(res => {
-//                         const movieDetail = showMovieDetail(res);
-//                         document.querySelector('.modal-body').innerHTML = movieDetail;
-//                     })
-//                 );
-//             });
-//         }
-//     }));
-// });
-
-
-
 
 document.querySelector('.search-btn').addEventListener('click', async function(){
     const movies = await getMovies(document.querySelector('.keyword').value);
