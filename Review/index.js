@@ -794,5 +794,5 @@ rumus : namaArray.reduce(function(acumulator, currentvalue){
 //     }
 // });
 
-fetch('http://www.omdbapi.com/?apikey=4c6cd34a&s&=Eromanga Sense')
-    .then(res => console.log(res.json())).catch(err => console.log(err));
+// fetch('http://www.omdbapi.com/?apikey=4c6cd34a&s&=Eromanga Sense')
+//     .then(res => console.log(res.json())).catch(err => console.log(err));
