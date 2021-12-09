@@ -78,29 +78,70 @@ const apiKey = '4c6cd34a&s';
 
 /*========== XMLHttp Request ========== */ 
 
-document.querySelector('#search-btn').addEventListener('click', () => {
-    getMoviesData(`http://www.omdbapi.com/?apikey=${apiKey}&s=${document.querySelector('#keyword').value}`, 'get', response => {
-    return processMovieData(response);
-}, err => consolelog(err));   
+// document.querySelector('#search-btn').addEventListener('click', () => {
+//     getMoviesData(`http://www.omdbapi.com/?apikey=${apiKey}&s=${document.querySelector('#keyword').value}`, 'get', response => {
+//     return processMovieData(response);
+// }, err => consolelog(err));   
 
+// });
+
+// function getMoviesData(url, method, success, error){
+//     const xhr = new XMLHttpRequest();
+//     xhr.addEventListener('readystatechange', function(){
+//         if(xhr.readyState !== 4) return;
+//         if(xhr.status !== 200) return error(xhr.responseText);
+//         return success(xhr.response);
+//     });
+
+//     xhr.open(method, url);
+//     xhr.send();
+// }
+
+// function processMovieData(response){
+//     const movies = JSON.parse(response).Search;
+//     const moviesElement = makeMoviesElement(movies);
+//     updateUi(moviesElement);
+// }
+
+// function makeCard(movie){
+//     let movieYear;
+//     movie.Year.endsWith('–') ? movieYear = movie.Year.slice(0, 4) : movieYear = movie.Year;
+
+//     return `<div class="col-md-3 my-3">
+//                 <div class="card">
+//                     <img src="${movie.Poster}" class="card-img-top">
+//                     <div class="card-body">
+//                     <h5 class="card-title">${movie.Title} (${movieYear})</h5>
+//                     <a href="#" class="btn btn-primary">Details</a>
+//                     </div>
+//                 </div>
+//             </div>`;
+// }
+
+// function makeMoviesElement(movies){
+//     let movieElement = '';
+//     for(const movie of movies){
+//         movieElement += makeCard(movie);
+//     }
+//     return movieElement;
+// }
+
+// function updateUi(element){
+//     document.querySelector('.movie-container').innerHTML = element;
+// }
+
+/*========== Axios ========== */ 
+
+document.querySelector('#search-btn').addEventListener('click', async () => {
+    const movies = await getMoviesData(document.querySelector("#keyword").value);
+    updateUi(makeMovieElement(movies));
 });
 
-function getMoviesData(url, method, success, error){
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', function(){
-        if(xhr.readyState !== 4) return;
-        if(xhr.status !== 200) return error(xhr.responseText);
-        return success(xhr.response);
-    });
-
-    xhr.open(method, url);
-    xhr.send();
-}
-
-function processMovieData(response){
-    const movies = JSON.parse(response).Search;
-    const moviesElement = makeMoviesElement(movies);
-    updateUi(moviesElement);
+function getMoviesData(query){
+    return axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`)
+        .then(result => {
+            return result.data.Search;
+        });
 }
 
 function makeCard(movie){
@@ -118,14 +159,14 @@ function makeCard(movie){
             </div>`;
 }
 
-function makeMoviesElement(movies){
-    let movieElement = '';
-    for(const movie of movies){
-        movieElement += makeCard(movie);
-    }
-    return movieElement;
-}
-
 function updateUi(element){
     document.querySelector('.movie-container').innerHTML = element;
+}
+
+function makeMovieElement(movies){
+    let element = '';
+    for(const movie of movies){
+        element += makeCard(movie);
+    }
+    return element;
 }
