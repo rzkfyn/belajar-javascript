@@ -7,6 +7,12 @@ document.querySelector('.search-btn').addEventListener('click', async () => {
     updateMoviesContainer(makeElement(movies));
 });
 
+document.addEventListener('click', async event => {
+    if(!event.target.dataset.imdbid) return;
+    const movie = await getMovieDataById(event.target.dataset.imdbid);
+    updateModal(makeModal(movie));
+})
+
 function getMoviesData(query){
     return fetch(`http://www.omdbapi.com/?apikey=${APIKEY}&s=${query}`)
             .then(res => res.json())
@@ -26,7 +32,7 @@ function makeCard(movie){
                     <img src="${movie.Poster}" height="350px">
                     <div class="card-body">
                     <h5 class="card-title">${movie.Title} (${movieYear})</h5>
-                    <a href="#" class="btn btn-primary" data-imdbID="${movie.imdbID}">Detail</a>
+                    <a href="#" class="btn btn-primary" data-imdbID="${movie.imdbID}" data-toggle="modal" data-target="#movieDetailModal">Detail</a>
                     </div>
                 </div>
             </div>`
@@ -41,5 +47,26 @@ function makeElement(movies){
 }
 
 function updateMoviesContainer(element){
-    document.querySelector('.movies-container').innerHTML = element;
+    return document.querySelector('.movies-container').innerHTML = element;
+}
+
+function makeModal(movie){
+    let movieYear;
+    movie.Year.endsWith('–') ? movieYear = movie.Year.slice(0, 4) : movieYear = movie.Year;
+    return `<div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item text-center"><img class="img-fluid" src="${movie.Poster}"></li>
+                        <li class="list-group-item"><strong>Title : </strong>${movie.Title}</li>
+                        <li class="list-group-item"><strong>Year : </strong>${movieYear}</li>
+                        <li class="list-group-item"><strong>Genre : </strong>${movie.Genre}</li>
+                        <li class="list-group-item"><strong>Director : </strong>${movie.Director}</li>
+                        <li class="list-group-item"><strong>Plot : </strong>${movie.Plot}</li>
+                    </ul>
+                </div>
+            </div>`;
+}
+
+function updateModal(content){
+    return document.querySelector('.modal-body').innerHTML = content;
 }
