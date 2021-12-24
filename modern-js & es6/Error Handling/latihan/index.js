@@ -3,25 +3,46 @@
 const APIKEY = '4c6cd34a&s';
 
 document.querySelector('.search-btn').addEventListener('click', async () => {
-    const movies = await getMoviesData(`${document.querySelector('.keyword').value}`);
-    updateMoviesContainer(makeElement(movies));
+    try{
+        const movies = await getMoviesData(`${document.querySelector('.keyword').value}`);
+        updateMoviesContainer(makeElement(movies));
+    }catch(e){
+        updateMoviesContainer(`<h1>${e}</h1>`);
+    }
 });
 
 document.addEventListener('click', async event => {
     if(!event.target.dataset.imdbid) return;
-    const movie = await getMovieDataById(event.target.dataset.imdbid);
-    updateModal(makeModal(movie));
+    try{
+        const movie = await getMovieDataById(event.target.dataset.imdbid);
+        updateModal(makeModal(movie));
+    }catch(e){
+        updateModal(e);
+    }
 })
 
 function getMoviesData(query){
     return fetch(`http://www.omdbapi.com/?apikey=${APIKEY}&s=${query}`)
-            .then(res => res.json())
-            .then(res => res.Search);
+            .then(res => {
+                if(!res.ok) throw new Error(res.statusText);
+                return res.json();
+            })
+            .then(res => {
+                if(res.Response === 'False') throw new Error(res.Error);
+                return res.Search;
+            });
 }
 
-async function getMovieDataById(movieId){
-    const movie = await fetch(`http://www.omdbapi.com/?apikey=${APIKEY}&i=${movieId}`);
-    return await movie.json();
+function getMovieDataById(movieId){
+    return fetch(`http://www.omdbapi.com/?apikey=${APIKEY}&i=${movieId}`)
+                .then(res => {
+                    if(!res.ok) throw new Error(res.statusText);
+                    return res.json();
+                })
+                .then(res => {
+                    if(res.Response === 'False') throw new Error(res.Error);
+                    return res;
+                });
 }
 
 function makeCard(movie){
