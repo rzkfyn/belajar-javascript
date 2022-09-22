@@ -1,3 +1,3 @@
-const coffeeStock = require('./src/coffeestock');
+const { coffeeStock, isCoffeeMachineReady } = require('./src/coffeestock');
 
-console.info(coffeeStock);
+console.info(coffeeStock, isCoffeeMachineReady);
